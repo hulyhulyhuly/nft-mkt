@@ -8,7 +8,7 @@ import images from '../assets';
 import { Button } from '.';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
-  const items = ['Explore NFTs', 'Listed NFTs', 'My NFTs'];
+  const ITEMS = Object.freeze(['Explore NFTs', 'Listed NFTs', 'My NFTs']);
   const flexDirection = isMobile ? 'flex-col h-full' : 'flex-row';
   const textColor = (item) => (active === item ? 'text-nft-black-1 dark:text-white' : 'text-nft-gray-1 dark:text-nft-gray-2');
 
@@ -26,7 +26,7 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 
   return (
     <ul className={`flexCenter ${flexDirection} list-none`}>
-      {items.map((item, i) => (
+      {ITEMS.map((item, i) => (
         <li
           key={i}
           className={`p-1 mx-3 font-poppins font-semibold text-base ${textColor(item)} hover:text-nft-dark dark:hover:text-white`}
