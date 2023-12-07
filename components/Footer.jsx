@@ -1,4 +1,3 @@
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 import images from '../assets';
@@ -14,12 +13,10 @@ const FooterLinks = ({ heading }) => {
   // const LINKS_Supports = Object.freeze(['Help Center', 'Terms of service', 'Legal', 'Privacy policy']);
 
   return (
-    // <div className="flex-1 justify-start items-start">
     <div>
       <h3 className="mb-4 font-poppins font-semibold text-xl text-nft-black-1 dark:text-white">
         {heading}
       </h3>
-
       <ul>
         {LINKS_ITEMS[heading]?.map((link, i) => (
           <li key={`${heading}-${i}`}>
@@ -34,8 +31,6 @@ const FooterLinks = ({ heading }) => {
 };
 
 const Footer = () => {
-  const { theme } = useTheme();
-
   const SOCIAL_ICONS = [images.instagram, images.twitter, images.telegram, images.discord];
 
   return (
@@ -46,9 +41,7 @@ const Footer = () => {
             <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" />
             <p className="ml-1 font-semibold text-lg text-nft-black-1 dark:text-white">CryptoKet</p>
           </div>
-
           <p className="mt-6 font-poppins font-semibold text-base text-nft-black-1 dark:text-white">Get the lastest updates.</p>
-
           <div className="flexBetween w-357 minlg:w-557 md:w-full mt-6 rounded-md border bg-white dark:bg-nft-black-2 border-nft-gray-2 dark:border-nft-black-2">
             <input
               type="email"
@@ -63,7 +56,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         <div className="flex flex-1 md:flex-col justify-evenly md:mx-auto md:mt-8 md:space-y-6">
           <FooterLinks heading="CryptoKet" />
           <FooterLinks heading="Supports" />
@@ -74,7 +66,6 @@ const Footer = () => {
         <div>
           <p className="font-poppins font-semibold text-base text-nft-black-1 dark:text-white">CryptoKet, Inc. All Rights Reserved</p>
         </div>
-
         <div className="flex sm:mt-4 space-x-2 sm:space-x-4">
           {SOCIAL_ICONS.map((icon, i) => (
             <div key={`{icon-${i}}`} className="cursor-pointer">
