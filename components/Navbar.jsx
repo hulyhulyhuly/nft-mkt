@@ -78,7 +78,6 @@ const Navbar = () => {
             <p className="ml-1 font-semibold text-lg text-nft-black-1 dark:text-white">CryptoKet</p>
           </div>
         </Link>
-
         <Link href="/">
           <div className="hidden cursor-pointer md:flex" onClick={() => {}}>
             <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" />
@@ -95,7 +94,6 @@ const Navbar = () => {
             <div className="absolute w-3 h-3 bg-white  rounded-full ball" />
           </label>
         </div>
-
         <div className="flex md:hidden">
           <MenuItems active={active} setActive={setActive} />
           <div className="ml-4">
@@ -106,21 +104,16 @@ const Navbar = () => {
 
       <div className="hidden ml-2 md:flex">
         <Image
-          src={isOpen ? images.cross : images.menu}
           objectFit="contain"
           width={24}
           height={24}
           alt={isOpen ? 'open' : 'close'}
-          className={theme === 'light' && 'filter invert'}
+          src={isOpen ? images.cross : images.menu}
+          className="invert dark:invert-0"
           onClick={() => setIsOpen((prev) => !prev)}
         />
-
         {isOpen && (
-          <div className="
-            fixed inset-0 top-65
-            flex justify-between flex-col
-            nav-h z-10 bg-white dark:bg-nft-dark"
-          >
+          <div className="fixed inset-0 top-65 flex justify-between flex-col nav-h z-10 bg-white dark:bg-nft-dark">
             <div className="flex-1 p-4">
               <MenuItems active={active} setActive={setActive} isMobile />
             </div>
@@ -130,7 +123,6 @@ const Navbar = () => {
           </div>
         )}
       </div>
-
     </nav>
   );
 };
