@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-1 md:flex-col justify-evenly md:mx-auto md:mt-8 md:space-y-6">
+        <div className="flex flex-1 sm:flex-col justify-evenly sm:mx-auto md:mt-8  sm:space-y-6">
           <FooterLinks heading="CryptoKet" />
           <FooterLinks heading="Supports" />
         </div>
