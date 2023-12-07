@@ -13,7 +13,7 @@ const FooterLinks = ({ heading }) => {
   // const LINKS_Supports = Object.freeze(['Help Center', 'Terms of service', 'Legal', 'Privacy policy']);
 
   return (
-    <div>
+    <div className="flex flex-col items-start">
       <h3 className="mb-4 font-poppins font-semibold text-xl text-nft-black-1 dark:text-white">
         {heading}
       </h3>
@@ -56,7 +56,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-1 sm:flex-col justify-evenly sm:mx-auto md:mt-8  sm:space-y-6">
+        <div className="flex flex-1 sm:flex-col justify-between sm:mx-auto md:mt-8  sm:space-y-6">
           <FooterLinks heading="CryptoKet" />
           <FooterLinks heading="Supports" />
         </div>
