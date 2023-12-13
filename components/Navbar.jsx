@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import images from '../assets';
 import { Button } from '.';
+import { NFTContext } from '../context/NFTContext';
 
 const MenuItems = ({ isMobile, active, setActive }) => {
   const ITEMS = Object.freeze(['Explore NFTs', 'Listed NFTs', 'My NFTs']);
@@ -40,13 +41,17 @@ const MenuItems = ({ isMobile, active, setActive }) => {
 };
 
 const ButtonGroup = ({ hasConnect, router, setActive }) => {
-  const btnName = hasConnect ? 'Create' : 'Connect';
-  const pathName = hasConnect ? '/create-nft' : '/connect';
+  const { connectWallet, currentAccount } = useContext(NFTContext);
+  const btnName = currentAccount ? 'Create' : 'Connect';
+  const pathName = currentAccount ? '/create-nft' : '/connect';
 
-  const handleClick = () => {
-    setActive('');
-    router.push(pathName);
-  };
+  const handleClick = currentAccount ? (
+    () => {
+      setActive('');
+      router.push(pathName);
+    }
+  )
+    : connectWallet;
 
   return (
     <Button

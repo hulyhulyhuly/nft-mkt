@@ -1,11 +1,13 @@
-import React from 'react';
+import { useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import images from '../assets';
+import { NFTContext } from '../context/NFTContext';
+import { shortenAddress } from '../utils/shortenAddress';
 
-const NFTCard = ({ nft }) => {
-  console.log('NFTCard');
+const NFTCard = ({ nft, onProfilePage }) => {
+  const { nftCurrency } = useContext(NFTContext);
 
   return (
     <Link href={{ pathname: '/nft-details', query: nft }}>
@@ -25,15 +27,12 @@ const NFTCard = ({ nft }) => {
 
           <div className="flexBetween mt-1 minlg:mt-3 flex-row xs:flex-col xs:items-start xs:mt-3">
             <p className="font-poppins font-semibold text-xs minlg:text-lg text-nft-black-1 dark:text-white">
-              {/* {nft.price}<span className="font-normal"> {nftCurrency}</span> */}
-              {nft.price}<span className="font-normal"> {nft.i}</span>
+              {nft.price}<span className="font-normal"> {nftCurrency}</span>
             </p>
             <p className="font-poppins font-semibold text-xs minlg:text-lg text-nft-black-1 dark:text-white">
-              {/* {shortenAddress(onProfilePage ? nft.owner : nft.seller)} */}
-              {`${nft.owner}, ${nft.seller}`}
+              {shortenAddress(onProfilePage ? nft.owner : nft.seller)}
             </p>
           </div>
-
           <div className="flexBetween flex-row mt-1 minlg:mt-3" />
         </div>
       </div>

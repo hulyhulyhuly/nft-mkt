@@ -1,22 +1,13 @@
-const fs = require('fs');
-
-require('@nomiclabs/hardhat-waffle');
-
-const privateKey = fs.readFileSync('.secret').toString().trim();
+require('@nomicfoundation/hardhat-toolbox');
 
 module.exports = {
   networks: {
     hardhat: {
+      accounts: {
+        mnemonic: 'insane fall near cliff swear physical giggle margin source picture village cushion',
+      },
       chainId: 1337,
     },
-    mumbai: {
-      url: 'https://rpc-mumbai.maticvigil.com',
-      accounts: [privateKey],
-    },
-    // rinkeby: {
-    // url: 'https://rinkeby.infura.io/v3/bed4fdcc76bb4978a9a3103ef0946f64',
-    //   accounts: [privateKey],
-    // },
   },
-  solidity: '0.8.4',
+  solidity: '0.8.19',
 };

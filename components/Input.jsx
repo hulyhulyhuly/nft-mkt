@@ -1,10 +1,9 @@
-// import { useContext } from 'react';
+import { useContext } from 'react';
 
-// import { NFTContext } from '../context/NFTContext';
+import { NFTContext } from '../context/NFTContext';
 
 const Input = ({ inputType, title, placeholder, handleClick }) => {
-//   const { nftCurrency } = useContext(NFTContext);
-  const nftCurrency = 0;
+  const { nftCurrency } = useContext(NFTContext);
 
   const generateInputElement = () => {
     const basicStyles = `
